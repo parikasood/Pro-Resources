@@ -1010,9 +1010,8 @@ a, a:hover {
 																		style=" --primary-color:#ffffff; --secondary-color:#323743;"
 																		data-bt-override-class="{}">
 																		<a href="#" target="_self" class="bt_bb_link"
-																			title="BUY NOW"><span
-																				class="bt_bb_button_text">BUY
-																				NOW</span></a>
+																			title="BUY NOW" onclick="addToCart('Starter Package', 2399)" class="button wc-backward">Starter Package</a>
+																				
 																	</div>
 																</div>
 															</div>
@@ -1033,7 +1032,7 @@ a, a:hover {
 															<div class="bt_bb_price_list_title_wrap">
 																<div class="bt_bb_price_list_price">
 																	<span class="bt_bb_price_list_currency">$</span><span
-																		class="bt_bb_price_list_amount">3299</span>
+																		class="bt_bb_price_list_amount"></span>
 																</div>
 																<div class="bt_bb_price_list_title_subtitle">
 																	<div class="bt_bb_price_list_subtitle">
@@ -1065,10 +1064,9 @@ a, a:hover {
 																	<div class="bt_bb_button bt_bb_color_scheme_6 bt_bb_icon_position_right bt_bb_style_filled bt_bb_size_normal bt_bb_width_inline bt_bb_shape_inherit bt_bb_target_self bt_bb_align_inherit"
 																		style=" --primary-color:#ffffff; --secondary-color:#b73235;"
 																		data-bt-override-class="{}">
-																		<a href="#" target="_self" class="bt_bb_link"
-																			title="BUY NOW"><span
-																				class="bt_bb_button_text">BUY
-																				NOW</span></a>
+																		<a href="#" target="_self" class="bt_bb_link button wc-backward"
+   title="BUY NOW" onclick="addToCart('Medium Package', 3299)">Medium Package</a>
+
 																	</div>
 																</div>
 															</div>
@@ -1089,7 +1087,7 @@ a, a:hover {
 															<div class="bt_bb_price_list_title_wrap">
 																<div class="bt_bb_price_list_price">
 																	<span class="bt_bb_price_list_currency">$</span><span
-																		class="bt_bb_price_list_amount">4999</span>
+																		class="bt_bb_price_list_amount"></span>
 																</div>
 																<div class="bt_bb_price_list_title_subtitle">
 																	<div class="bt_bb_price_list_subtitle">
@@ -1119,10 +1117,9 @@ a, a:hover {
 																	<div class="bt_bb_button bt_bb_color_scheme_11 bt_bb_icon_position_right bt_bb_style_filled bt_bb_size_normal bt_bb_width_inline bt_bb_shape_inherit bt_bb_target_self bt_bb_align_inherit"
 																		style=" --primary-color:#ffffff; --secondary-color:#323743;"
 																		data-bt-override-class="{}">
-																		<a href="#" target="_self" class="bt_bb_link"
-																			title="Buy now"><span
-																				class="bt_bb_button_text">Buy
-																				now</span></a>
+																		<a href="#" target="_self" class="bt_bb_link button wc-backward"
+   title="BUY NOW" onclick="addToCart('Medium Package', 4999)">Full Package</a>
+
 																	</div>
 																</div>
 															</div>
@@ -1457,6 +1454,21 @@ a, a:hover {
 			});
 
 	</script>
+	<script>
+        function addToCart(packageName, price) {
+            // You can use localStorage or sessionStorage to store the selected items.
+            // For simplicity, we'll use localStorage here.
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the selected item to the cart
+            cartItems.push({ packageName, price });
+
+            // Update the cart in localStorage
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+
+            alert('Item added to cart!');
+        }
+    </script>
 	<script src="../../Wapl92Pkk4f7.com/recaptcha/api_onload%3Dwp_recaptchaLoadCallback%26render%3Dexplicit.js" async=""
 		defer=""></script>
 	<!-- END recaptcha -->

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+</head>
+<body>
+    <h1>Cart Page</h1>
+
+    <div id="cartItems">
+        <!-- Cart items will be displayed here -->
+    </div>
+
+    <script>
+        // Retrieve cart items from localStorage
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Display cart items on the page
+        let cartItemsContainer = document.getElementById('cartItems');
+        cartItems.forEach(item => {
+            let itemDiv = document.createElement('div');
+            itemDiv.innerHTML = `<p>${item.packageName} - $${item.price}</p>`;
+            cartItemsContainer.appendChild(itemDiv);
+        });
+    </script>
+</body>
+</html>

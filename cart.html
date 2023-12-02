@@ -391,23 +391,10 @@
 										<header
 											class="bt_bb_headline bt_bb_superheadline bt_bb_superheadline_outside bt_bb_subheadline bt_bb_size_large"
 											data-bt-override-class="{}">
-											<div class="bt_bb_headline_superheadline_outside">
-												<span class="bt_bb_headline_superheadline"><span
-														class="btBreadCrumbs"><span><a
-																href="https://avantage.bold-themes.com/hr/">Home</a></span><span><a
-																href="https://avantage.bold-themes.com/hr/shop/">Shop</a></span></span></span>
-											</div>
+											
 											<h1 class="bt_bb_headline_tag"><span
 													class="bt_bb_headline_content"><span>Cart</span></span></h1>
-											<div class="bt_bb_headline_subheadline">
-												Completely synergize resource taxing
-												relationships via premier niche markets.
-												Professionally cultivate one-to-one
-												customer service with robust ideas.
-												Dynamically innovate resource-leveling
-												customer service for state of the art
-												customer service.
-											</div>
+											
 										</header>
 									</div><!-- /rowItemContent -->
 								</div><!-- /rowItem -->
@@ -435,13 +422,34 @@
 																<div class="woocommerce-notices-wrapper">
 																</div>
 																<div class="wc-empty-cart-message">
-																	<div class="cart-empty woocommerce-info">
-																		Your cart is currently empty.
-																	</div>
+																	
+																	<h1 class="bt_bb_headline_tag">
+																		<div id="cartItems">
+																			<!-- Cart items will be displayed here -->
+																		</div>
+																	</h1>
+																
+																	
+																	<p class="return-to-shop">
+																		<a href="#" onclick="clearCart()" class="button wc-backward">Clear Cart&nbsp;&nbsp;</a> <br><br>
+																	<a href="#" class="button wc-backward" onclick="proceedToCheckout()">Checkout</a>
+																	</p>
+																	
+		
 																</div>
-																<p class="return-to-shop"><a class="button wc-backward"
+																<div>
+																	<br><br><br>
+																	<p class="return-to-shop"><a class="button wc-backward"
 																		href="buildcv.html">
 																		Return to shop</a></p>
+																</div>
+															</div>
+															<div>
+																
+
+    
+															
+																
 															</div>
 														</div>
 													</div>
@@ -865,6 +873,40 @@
 						var woocommerce_params = { "ajax_url": "\/hr\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/hr\/?wc-ajax=%%endpoint%%" };
 						/* ]]> */
 					</script>
+					
+					
+					<script>
+						// Retrieve cart items from localStorage
+						let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+					
+						// Display cart items on the page
+						let cartItemsContainer = document.getElementById('cartItems');
+						cartItems.forEach(item => {
+							let itemDiv = document.createElement('div');
+							itemDiv.innerHTML = `<p>${item.packageName} - $${item.price}</p>`;
+							cartItemsContainer.appendChild(itemDiv);
+						});
+					
+						function clearCart() {
+							// Clear the cart in localStorage
+							localStorage.removeItem('cart');
+							alert('Cart cleared!');
+							location.reload(); // Refresh the page to reflect changes
+						}
+					
+						function proceedToCheckout() {
+							// In a real-world scenario, you would send the cart data to the server
+							// and handle the payment processing on the server side.
+							// Here, we're just alerting the total value as a placeholder.
+					
+							let totalValue = cartItems.reduce((total, item) => total + item.price, 0);
+							alert(`Total Value: $${totalValue}`);
+					
+							// Redirect to the payment gateway or initiate the payment process.
+							// This is a placeholder and should be replaced with the actual server-side logic.
+							// window.location.href = 'https://your-payment-gateway-link.com';
+						}
+					</script>
 					<script type="text/javascript"
 						src="https://avantage.bold-themes.com/hr/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=8.2.2"
 						id="woocommerce-js"></script>
@@ -916,6 +958,8 @@
 					<script type="text/javascript"
 						src="https://avantage.bold-themes.com/hr/wp-content/plugins/bold-page-builder/content_elements/bt_bb_section/bt_bb_elements.js?ver=4.7.6"
 						id="bt_bb_elements-js"></script>
+					<script src="cart.js"></script>
+					<script src="cart.js"></script>
 
 
 </body>

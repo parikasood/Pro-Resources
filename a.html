@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+</head>
+<body>
+    <h1>Product Page</h1>
+    
+    <div>
+        <h2>STARTER PACKAGE</h2>
+        <p>Basic HR Reach</p>
+        <p>Optimizing current employees</p>
+        <!-- Add other details here -->
+
+        <button onclick="addToCart('Starter Package', 2399)">Add to Cart</button>
+        <button onclick="addToCart('Starter Package', 1399)">Add to Cart</button>
+        <button onclick="addToCart('Starter Package', 3399)">Add to Cart</button>
+    </div>
+
+    <!-- Repeat similar structure for other packages -->
+
+    <script>
+        function addToCart(packageName, price) {
+            // You can use localStorage or sessionStorage to store the selected items.
+            // For simplicity, we'll use localStorage here.
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the selected item to the cart
+            cartItems.push({ packageName, price });
+
+            // Update the cart in localStorage
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+
+            alert('Item added to cart!');
+        }
+    </script>
+</body>
+</html>
